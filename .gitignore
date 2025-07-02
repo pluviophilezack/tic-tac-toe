@@ -7,3 +7,5 @@ main
 # Ignore macOS system files
 .DS_Store
 
+# Ignore pdf files
+*.pdf
