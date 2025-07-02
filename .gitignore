@@ -1,3 +1,6 @@
+# Ignore Unix executables
+main
+
 # Ignore executables
 *.exe
 
