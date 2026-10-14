@@ -1,30 +1,41 @@
 //Tic-tac-toe with AI
 #include <iostream>
 #include <iomanip>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 void Intro(char &hpiece,char &apiece){
     char YN=0;
     char c=0;
     cout<<"Bob:\"Let's play a game I just bought from 千千.\""<<endl;
-    cout<<"\"It's called \'The Legend of Zelda\'.\""<<endl<<"\"Though this game cost me $35.99, but it's worth. I really love Zelda.\""<<endl<<"\"I can't wait to play!!\""<<endl;
-    while(c!='C')
+    this_thread::sleep_for(chrono::seconds(2));
+    cout<<"\"It's called \'The Legend of Zelda\'.\""<<endl<<"\"Though this game cost me $35.99, but it's worth. I really love Zelda.\""<<endl;
+    cout<<"\"I can't wait to play!!\""<<endl;
+    this_thread::sleep_for(chrono::seconds(3));
+
+    while(c!='O' && c!='o')
     {
         cout<<"(press \"O\" to operate the game)"<<endl;
         cin>>c;
     }
     cout<<"(Operate the game. . .)"<<endl<<endl;
+    this_thread::sleep_for(chrono::seconds(5));
     cout<<"screen: \"Welcome to The Legend of Zelda---Tic Tac Toe version\""<<endl;
+    this_thread::sleep_for(chrono::seconds(3));
     cout<<"Bob:\"Wait, seriously? TIC TAC TOE?!?!\""<<endl;
-    cout<<"screen: \"Here are nine areas you will discover in the game. Each area named a number,1 to 8.\" "<<endl;
+    this_thread::sleep_for(chrono::seconds(3));
+    cout<<"screen: \"Here are nine areas you will discover in the game. Each area named a number,0 to 8.\" "<<endl;
     cout<<"0|1|2"<<endl;
     cout<<"-----"<<endl;
     cout<<"3|4|5"<<endl;
     cout<<"-----"<<endl;
     cout<<"6|7|8"<<endl;
+    this_thread::sleep_for(chrono::seconds(3));
     cout<<"screen: \"You two can separately choose where to go in each round, and mark that place by your own symbol: great CIRCLE and CROSS.\""<<endl;
     cout<<"screen: \"The first player will be represented by CIRCLE.\""<<endl;
     cout<<"screen: \"The second player will be represented by CROSS.\""<<endl;
+    this_thread::sleep_for(chrono::seconds(5));
     
     while((YN!='Y')&&(YN!='N'))
     {
@@ -48,7 +59,7 @@ void Intro(char &hpiece,char &apiece){
         cout<<"(press \"S\" to start your adventure)"<<endl;
         cin>>c;
     }
-    cout<<"screen: \"Start:\""<<endl;
+    cout<<"screen: \"START\""<<endl;
 }
 
 void Board(char *board){    //顯示遊戲板塊
@@ -101,6 +112,7 @@ void Hmove(char *board,char &over,char hpiece)  //人類下棋
 {
     int place=0;
     for(;;){
+        this_thread::sleep_for(chrono::seconds(2));
         cout<<"Bob:\"What your next move?\""<<endl;
         cin>>place;
     if(Legal(board,place)==true)      //如果所選位置可以下
@@ -168,7 +180,9 @@ int AI(char *AIboard,char hpiece,char apiece)   //AI判斷下哪兒
 }
 
 void Amove(char *board,char &over,char hpiece,char apiece){ //AI下棋
+    this_thread::sleep_for(chrono::seconds(3));
     cout<<"Bob:\"It's my turn, let's see......Here!\""<<endl;
+    this_thread::sleep_for(chrono::seconds(2));
     char AIboard[9]={0};
     for(int i=0;i<=8;i++)
      {
